@@ -44,7 +44,7 @@ d_RT  = kRT(3);
 b_RT  = kRT(4);
 
 % Message Processing (msr-msd + RT) reaction advancement constant 
-k_M  = 250;
+k_M  = 1;
 
 %% List of Differential Equations    
 dydt = [0    ;%1D[Cas1]
@@ -55,7 +55,6 @@ dydt = [0    ;%1D[Cas1]
                                                     
         0    ;%4D[UM]
         
-        %r_UM.*y(9)./(y(9)+C_UM) + b_UM - d_MP.*y(5) - k_M.*y(5)  ;%5D[MP]
         r_RT.*y(9)./(y(9)+C_RT) + b_RT - k_M.*y(5)                ;%5D[MP]
         
         0    ;% 6 D[M]
@@ -65,10 +64,9 @@ dydt = [0    ;%1D[Cas1]
         0    ;% 8 D[SM]
         
         % 9 D[I]                              
-        %-00000000000000000000000000000002000000000000000000000000000*(t-100).*exp(-0.001*(t-100).^2)       ;%Gaussian at t=10
-        %cos(t-10)                        ;%Sin      at t=10
-        %dirac(t-5)-dirac(t-10)           ;%Heaviside from t=5 to t=10
-        0                                 ;%Leakage
+        % 2*(t-3).*exp(-(t-3).^2)       ;%Gaussian at t=3
+        % 2*cos(t).*sin(t)                        ;%Sin^2(t)  
+        0                                 ;%Constant IPTG
         
         k_M.*y(5)   % 10 D[Ins]
         ];

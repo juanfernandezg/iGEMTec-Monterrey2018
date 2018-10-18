@@ -44,7 +44,7 @@ d_RT  = kRT(3);
 b_RT  = kRT(4);
 
 %% Arbitrary Parameters, using values greater than 1 may result in long simulation times
-ap = 0.1;
+ap = 1.5;
 
 % Unprocessed Message (msr-msd) production
 r_UM = ap;
