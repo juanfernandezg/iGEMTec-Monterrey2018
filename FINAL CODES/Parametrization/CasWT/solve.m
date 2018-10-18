@@ -1,9 +1,11 @@
-%Poblaci�n inicial
+%% FIRST run scriptRT, to calculate best parameters
+% Bacteria population at t = 1 (in case it was necessary)
 p1 = 2576249518; % 0mM
 p2 = 2696489168; % 0.1mM
 p3 = 2275650393; % 0.5mM
 p4 = 2290162075; % 1.0mM
 
+%Initial protein conditions
 prot0=[0.690397350993;
 0.706953642384;
 0.392384105960;
@@ -40,11 +42,10 @@ dydt = @(t,y) [8.63383E+08; %Crecimiento poblacional [mL^-1]
 
 [t, y] = ode45(dydt, 1:h:tlim, [p1;prot1;p2;prot2;p3;prot3;p4;prot4]);
 
-
+% Graphs
 linewidth = 2;
-
 for con=1:8
-    figure(con)%1)%
+    figure(con)
     plot(t, y(:,con),'LineWidth',linewidth)
     title('Concentración')
     legend('Location','southeast')
@@ -56,5 +57,4 @@ for con=1:8
     grid on
     %hold on%
 end
-%figure(2)
 

@@ -21,7 +21,7 @@ d=x(3);
 b=x(4);
 n=1;
 
-%Condiciones iniciales
+% IPTG conditions
 I1 = 0;
 I2 = 0.1;
 I3 = 0.5;
@@ -43,10 +43,10 @@ dydt = @(t,y) [-4.79040E+07.*t*2 + 4.35344E+08; %Population interpolation deriva
 
 [t, y] = ode45(dydt, 1:h:tlim, [p1;prot1;p2;prot2;p3;prot3;p4;prot4]);
 
+% Graphs
 linewidth = 2;
-
 for con=1:8
-    figure(con)%1)%
+    figure(con)
     plot(t, y(:,con),'LineWidth',linewidth)
     title('Concentración')
     legend('Location','southeast')

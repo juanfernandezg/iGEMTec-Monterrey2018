@@ -19,9 +19,10 @@ options.MaxIterations = 400;
 % Experimental data
 load('data.mat','data')
 
-
+% Error function
 error = @(s)aprox(s)-data;
 
+% Errors minimization
 x = lsqnonlin(error,x0,[0,0,0,0],[1000,1,1000,1000],options)
 % Differential Equations Systems Solution
 res=aprox(x);
