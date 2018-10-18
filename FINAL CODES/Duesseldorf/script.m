@@ -3,13 +3,15 @@
 % B --> S. Cerevisiae
 % C --> S. Elongatus
 
-%Reduced tolerance
+% For Reduced tolerance
 %tol = odeset('RelTol',1e-2);
 
+% Differential Equations System solver, from t = (0,10), step size of 0.1.
+% Initial conditions: [rand(1);rand(1);rand(1);rand(1);rand(1);rand(1)]
 [t, y] = ode45(@DESystem, 0:.1:10, [rand(1);rand(1);rand(1);rand(1);rand(1);rand(1)]);
 
+% Graphs for the population of each bacteria
 linewidth = 2;
-
 figure(1)
 plot(t, y(:,1),'LineWidth',linewidth)
 title('E.Coli vs Time')
