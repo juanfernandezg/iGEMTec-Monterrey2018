@@ -95,6 +95,6 @@ dydt =  @(t,y) [0    ;%1D[Cas1]
 
 [t, y] = ode45(dydt, 0:h:tlim, [0;0;0;0;0;0;0;0;a0;0]);  %Matlab solver
 
-res = y(:,9);
+res = y(:,10);
 
 end
