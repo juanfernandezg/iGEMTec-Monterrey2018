@@ -54,5 +54,5 @@ end
 figure(22)
 
 % ''Experimental data''
-final = y(:,10);
-save('final.mat','final')
+Ins = y(:,10);
+save('Ins.mat','Ins')

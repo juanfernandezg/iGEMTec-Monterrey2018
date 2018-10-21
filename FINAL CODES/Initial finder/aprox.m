@@ -88,7 +88,7 @@ dydt =  @(t,y) [0    ;%1D[Cas1]
         %-2*(t-3).*exp(-(t-3).^2)       ;%Gaussian at t=3
         %2*cos(t).*sin(t)                        ;%Sin^2(t)  
         %0                                 ;%Constant IPTG
-        a1 + 2*a2.*t.^1 + 3*a3.*t.^2 + 4*a4.*t.^3 + 5*a5.*t.^4;% + 6*a6.*t.^5 + 7*a7.*t.^6 + 8*a8.*t.^7 + 9*a9.*t.^8 + 10*a10.*t.^9 + 11*a11.*t.^10;%Taylor
+        a1 + 2*a2.*t.^1 + 3*a3.*t.^2 + 4*a4.*t.^3 + 5*a5.*t.^4;% Power Series expansion for inductor function
         
         k_M.*y(5)   % 10 D[Ins]
         ];
