@@ -23,8 +23,8 @@
 % tol = odeset('RelTol',1e-2); %Reduced tolerance (more precision)
 format long
 h    = .1;     %step size
-tlim = 10;     %time limit
-ilim =  15;     %insertion limit
+tlim = 24;     %time limit
+ilim =  5;     %insertion limit
 I0   =   0.1;     %initial inductor concentration
 
 [t, y] = ode45(@DESystem, 0:h:tlim, [0;0;0;0;0;0;0;0;0;0]);  %Matlab solver
@@ -53,3 +53,6 @@ for con=12:21
 end
 figure(22)
 
+% ''Experimental data''
+final = y(:,9);
+save('final.mat','final')

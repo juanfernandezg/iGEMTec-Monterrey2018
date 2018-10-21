@@ -2,7 +2,7 @@
 r0 = rand(1)*.10;
 C0 = rand(1)*.09;
 d0 = r0;
-b0 = rand(1)*.07;
+b0 = rand(1)*.007;
 n0=1;
 x0 = [r0,C0,d0,b0];
 %x0=x;
@@ -23,7 +23,7 @@ load('data.mat','data')
 error = @(s)aprox(s)-data;
 
 % Errors minimization
-x = lsqnonlin(error,x0,[0,0,0,0],[1000,1,1000,1000],options)
+x = lsqnonlin(error,x0,[0,0,0,0],[1000,1,1000,.0001],options)
 % Differential Equations Systems Solution
 res=aprox(x);
 %Square errors

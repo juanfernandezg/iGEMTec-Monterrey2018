@@ -38,26 +38,26 @@ d_2  = kWT(3);
 b_2  = 2/6.*kWT(4);
 
 % RT production
-r_RT  = kRT(1);
-C_RT  = kRT(2);
-d_RT  = kRT(3);
-b_RT  = kRT(4);
+r_UM  = kRT(1);
+C_UM  = kRT(2);
+d_UM  = kRT(3);
+b_UM  = kRT(4);
 
 %% Arbitrary Parameters, using values greater than 1 may result in long simulation times
-ap = 1.5;
+ap = 10;
 
 % Unprocessed Message (msr-msd) production
-r_UM = ap;
-C_UM = 0.01*ap;
-d_UM = 0;
-b_UM = ap;
+r_RT = ap;
+C_RT = 0.01*ap;
+d_RT = 0;
+b_RT = ap;
 
 % Message Processing (msr-msd + RT)
 k_MP  = ap;
 d_MP  = 0;
 
 % Message (msDNA) production rate
-k_M  = ap;
+k_M  = 1;
 d_M  = 0;
 
 % Cas Complex 'X' (4 Cas1 + 2 Cas2)
@@ -65,9 +65,9 @@ k_X  = ap;
 k__X = 0;
 
 % Storage Machinery (X + msDNA) formation and insertion rates
-k_SM  = 0.9*ap;
+k_SM  = ap;
 d_SM  = 0;
-P_SM  = 0.8*ap;
+P_SM  = ap;
 
 %% List of Differential Equations    
 dydt = [b_1 + r_1.*y(9)./(y(9)+C_1) - d_1.*y(1) - 4*k_X.*(y(1).^4).*(y(2).^2) + 4*k__X.*y(7)     ;%1D[Cas1]
